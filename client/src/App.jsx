@@ -5,17 +5,26 @@ import { useState } from "react";
 
 function App() {
   const [balance, setBalance] = useState(0);
-  const [address, setAddress] = useState("");
+  const [addressSender, setAddressSender] = useState("");
+  //const [privateKey, setPrivateKey] = useState("");
+  const [signatureR, setSignatureR] = useState("");
+  const [signatureS, setSignatureS] = useState("");
+
 
   return (
     <div className="app">
       <Wallet
         balance={balance}
         setBalance={setBalance}
-        address={address}
-        setAddress={setAddress}
+        addressSender={addressSender}
+        setAddressSender={setAddressSender}
       />
-      <Transfer setBalance={setBalance} address={address} />
+      <Transfer setBalance={setBalance} 
+                addressSender={addressSender} 
+                signatureR={signatureR} 
+                setSignatureR={setSignatureR}
+                signatureS={signatureS} 
+                setSignatureS={setSignatureS}/>
     </div>
   );
 }
